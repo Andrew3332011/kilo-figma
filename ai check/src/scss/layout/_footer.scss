@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as *;
+
+.footer {
+  background: $color-carbon;
+  padding: $spacing-lg $spacing-md;
+  border-top: 1px solid rgba($color-white, 0.1);
+
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $color-ferrari-red;
+    font-size: 1.5rem;
+  }
+
+  &__copyright {
+    color: $color-silver;
+    font-size: 0.875rem;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: $spacing-md;
+    list-style: none;
+  }
+
+  &__nav-link {
+    color: $color-silver;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-ferrari-red;
+    }
+  }
+}

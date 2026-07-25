@@ -1,0 +1,609 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+button:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+canvas {
+  display: block;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header--scrolled {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+.header__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  width: 70px;
+  height: 40px;
+}
+@media (max-width: 767px) {
+  .header__navigation {
+    display: none;
+  }
+}
+.header__nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.header__nav-link {
+  position: relative;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.header__nav-link:hover {
+  color: #DC2626;
+}
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  transition: width 0.3s ease;
+}
+.header__nav-link:hover::after {
+  width: 100%;
+}
+.header__menu-toggle {
+  display: none;
+}
+@media (max-width: 767px) {
+  .header__menu-toggle {
+    display: block;
+    width: 32px;
+    height: 32px;
+    position: relative;
+  }
+}
+.header__menu-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  transition: transform 0.3s ease;
+}
+.header__menu-line:nth-child(1) {
+  top: 10px;
+}
+.header__menu-line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__menu-line:nth-child(3) {
+  bottom: 10px;
+}
+
+.footer {
+  background: #111111;
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer__logo {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #DC2626;
+  font-size: 1.5rem;
+}
+.footer__copyright {
+  color: #e5e5e5;
+  font-size: 0.875rem;
+}
+.footer__nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.footer__nav-link {
+  color: #e5e5e5;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+.footer__nav-link:hover {
+  color: #DC2626;
+}
+
+.hero {
+  position: relative;
+  height: 120vh;
+  width: 100%;
+  overflow: hidden;
+}
+.hero__canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.hero__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero__overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.hero__content {
+  text-align: center;
+  padding: 2rem;
+}
+.hero__headline {
+  font-size: 200px;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero__subhead {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  background: linear-gradient(180deg, #ffd8d8 0%, #ff6b6b 15%, #ff2b2b 35%, #c40000 60%, #6b0000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero__cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease 1s forwards;
+}
+.hero__scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e5e5e5;
+  margin-bottom: 0.5rem;
+}
+.hero__scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(45deg);
+  }
+}
+.gallery {
+  padding: 8rem 2rem;
+  background: linear-gradient(180deg, #000000 0%, #111111 100%);
+}
+.gallery__container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.gallery__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gallery__subtitle {
+  text-align: center;
+  color: #e5e5e5;
+  margin-bottom: 8rem;
+  font-size: 1.25rem;
+}
+.gallery__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media (min-width: 1440px) {
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.gallery__card {
+  position: relative;
+  background: rgba(42, 42, 42, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/12;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery__card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+.gallery__model-canvas-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.gallery__model-canvas {
+  width: 100%;
+  height: 100%;
+}
+.gallery__card-content {
+  padding: 2rem;
+}
+.gallery__card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.gallery__card-specs {
+  color: #e5e5e5;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+.gallery__card-link {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #DC2626;
+  transition: color 0.3s ease;
+}
+.gallery__card-link:hover {
+  color: #FF3B30;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.button--primary {
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+.button--primary:hover {
+  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+  transform: translateY(-2px);
+}
+.button--secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+.button--secondary:hover {
+  border-color: #DC2626;
+  color: #DC2626;
+}
+.button--outline {
+  background: transparent;
+  border: 1px solid #DC2626;
+  color: #DC2626;
+}
+.button--outline:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader__content {
+  text-align: center;
+}
+.loader__logo {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
+  color: #DC2626;
+  margin-bottom: 4rem;
+}
+.loader__progress {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto 2rem;
+}
+.loader__bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  transition: width 0.3s ease;
+}
+.loader__percentage {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 1rem;
+  color: #e5e5e5;
+}
+
+.heritage {
+  padding: 8rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.heritage__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  gap: 8rem;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .heritage__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.heritage__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+.heritage__text {
+  font-size: 1.25rem;
+  color: #e5e5e5;
+  margin-bottom: -70px;
+  line-height: 1.8;
+}
+.heritage__visual {
+  position: relative;
+}
+.heritage__video-container {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.heritage__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.innovation {
+  padding: 8rem 2rem;
+  background: #111111;
+}
+.innovation__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+.innovation__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+.innovation__subtitle {
+  color: #e5e5e5;
+  font-size: 1.25rem;
+  margin-bottom: 8rem;
+}
+.innovation__features {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 8rem;
+}
+.innovation__feature {
+  padding: 4rem;
+  background: rgba(42, 42, 42, 0.3);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.innovation__feature:hover {
+  transform: translateY(-10px);
+}
+.innovation__feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.innovation__feature-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.innovation__feature-text {
+  color: #e5e5e5;
+}
+
+.racing {
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: left;
+  background: url("/pics/racing-car.png") center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+.racing__container {
+  max-width: 1440px;
+  position: relative;
+  z-index: 1;
+}
+.racing__title {
+  font-size: 75px;
+  background: linear-gradient(135deg, #DC2626 0%, #FF3B30 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+.racing__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 30px;
+  list-style: none;
+}
+.racing__number {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 900;
+  color: rgb(120, 120, 120);
+}
+.racing__text {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+}

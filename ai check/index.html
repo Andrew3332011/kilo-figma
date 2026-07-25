@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="" href="https://download.logo.wine/logo/Ferrari/Ferrari-Logo.wine.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ferrari - The pinnacle of automotive excellence. Experience the passion, innovation, and craftsmanship of Italy's most iconic carmaker." />
+    <title>Ferrari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader__content">
+        <div class="loader__logo">FERRARI</div>
+        <div class="loader__progress">
+          <div class="loader__bar"></div>
+        </div>
+        <div class="loader__percentage">0%</div>
+      </div>
+    </div>
+
+    <header class="header" id="header">
+      <div class="header__container">
+        <a href="/" class="header__logo" aria-label="Ferrari Home">
+          <img src="https://download.logo.wine/logo/Ferrari/Ferrari-Logo.wine.png" alt="ferrari log" class="header__logo-icon">
+          <span class="header__logo-text">FERRARI</span>
+        </a>
+        
+        <nav class="header__navigation" aria-label="Main navigation">
+          <ul class="header__nav-list">
+            <li><a href="#models" class="header__nav-link">Models</a></li>
+            <li><a href="#heritage" class="header__nav-link">Heritage</a></li>
+            <li><a href="#innovation" class="header__nav-link">Innovation</a></li>
+            <li><a href="#experience" class="header__nav-link">Experience</a></li>
+            <li><a href="#racing" class="header__nav-link">Racing</a></li>
+          </ul>
+        </nav>
+
+        <button class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero__canvas-container">
+          <canvas class="hero__canvas" id="hero-canvas"></canvas>
+        </div>
+        <div class="hero__overlay">
+          <div class="hero__content">
+            <h1 class="hero__headline">PASSION ON FOUR WHEELS</h1>
+            <p class="hero__subhead">Pure Italian excellence since 1947</p>
+            
+          </div>
+        </div>
+        <div class="hero__scroll-indicator">
+          <span class="hero__scroll-text">Scroll to explore</span>
+          <div class="hero__scroll-arrow"></div>
+        </div>
+      </section>
+
+      <section class="gallery" id="models">
+        <div class="gallery__container">
+          <h2 class="gallery__title">THE COLLECTION</h2>
+          <p class="gallery__subtitle">Iconic models that define generations</p>
+          
+          <div class="gallery__grid">
+            <div class="gallery__card" data-model="sf90">
+              <div class="gallery__model-canvas-container">
+                <canvas class="gallery__model-canvas"></canvas>
+              </div>
+              <div class="gallery__card-content">
+                <h3 class="gallery__card-title">SF90 Stradale</h3>
+                <p class="gallery__card-specs">986 HP • 2.0s 0-100 km/h</p>
+                <a href="#" class="gallery__card-link">Discover More</a>
+              </div>
+            </div>
+
+            <div class="gallery__card" data-model="roma">
+              <div class="gallery__model-canvas-container">
+                <canvas class="gallery__model-canvas"></canvas>
+              </div>
+              <div class="gallery__card-content">
+                <h3 class="gallery__card-title">Roma</h3>
+                <p class="gallery__card-specs">620 HP • 3.4s 0-100 km/h</p>
+                <a href="#" class="gallery__card-link">Discover More</a>
+              </div>
+            </div>
+
+            <div class="gallery__card" data-model="f8">
+              <div class="gallery__model-canvas-container">
+                <canvas class="gallery__model-canvas"></canvas>
+              </div>
+              <div class="gallery__card-content">
+                <h3 class="gallery__card-title">F8 Tributo</h3>
+                <p class="gallery__card-specs">720 HP • 2.9s 0-100 km/h</p>
+                <a href="#" class="gallery__card-link">Discover More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="heritage" id="heritage">
+        <div class="heritage__container">
+          <div class="heritage__content">
+            <h2 class="heritage__title">77 YEARS OF LEGEND</h2>
+            <p class="heritage__text">Born from the dream of Enzo Ferrari, every car carries the DNA of racing victory and Italian craftsmanship.</p>
+          </div>
+          <div class="heritage__visual">
+            <div class="heritage__video-container">
+              <video class="heritage__video" autoplay muted loop playsinline>
+                <source src="/videos/ferrari-heritage.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="innovation" id="innovation">
+        <div class="innovation__container">
+          <h2 class="innovation__title">ENGINEERING EXCELLENCE</h2>
+          <p class="innovation__subtitle">Pushing boundaries with every revolution</p>
+          
+          <div class="innovation__features">
+            <div class="innovation__feature">
+              <div class="innovation__feature-icon">⚡</div>
+              <h3 class="innovation__feature-title">Hybrid Power</h3>
+              <p class="innovation__feature-text">Advanced hybrid systems delivering unprecedented performance</p>
+            </div>
+            <div class="innovation__feature">
+              <div class="innovation__feature-icon">🏎️</div>
+              <h3 class="innovation__feature-title">Aerodynamics</h3>
+              <p class="innovation__feature-text">Wind tunnel perfected for ultimate downforce</p>
+            </div>
+            <div class="innovation__feature">
+              <div class="innovation__feature-icon">🛞</div>
+              <h3 class="innovation__feature-title">Design</h3>
+              <p class="innovation__feature-text">Pininfarina collaboration creating timeless beauty</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="racing" id="racing">
+        <div class="racing__container">
+          <div class="racing__content">
+            <h2 class="racing__title">RACING DNA</h2>
+            <ul class="racing__list">
+              <li class="racing__item">
+                <p class="racing__number">15</p>
+                <p class="racing__text">F1 Champions</p>
+              </li>
+              <li class="racing__item">
+                <p class="racing__number">16</p>
+                <p class="racing__text">Constructor Titles</p>
+              </li>
+              <li class="racing__item">
+                <p class="racing__number">238</p>
+                <p class="racing__text">Grand Prix Victories</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__branding">
+          <div class="footer__logo">FERRARI</div>
+          <p class="footer__copyright">© 2026 Ferrari N.V.</p>
+        </div>
+        <nav class="footer__navigation">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">Privacy</a></li>
+            <li><a href="#" class="footer__nav-link">Terms</a></li>
+            <li><a href="#" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script src="./src/index.js"></script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as *;
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: $font-display;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &--primary {
+    background: $gradient-red;
+    color: $color-white;
+    box-shadow: 0 4px 20px rgba($color-ferrari-red, 0.3);
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba($color-ferrari-red, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    border: 1px solid rgba($color-white, 0.3);
+    color: $color-white;
+
+    &:hover {
+      border-color: $color-ferrari-red;
+      color: $color-ferrari-red;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $color-ferrari-red;
+    color: $color-ferrari-red;
+
+    &:hover {
+      background: rgba($color-ferrari-red, 0.1);
+    }
+  }
+}

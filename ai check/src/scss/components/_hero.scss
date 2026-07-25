@@ -1,0 +1,124 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.hero {
+  position: relative;
+  height: 120vh;
+  width: 100%;
+  overflow: hidden;
+
+  &__canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &__overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  &__content {
+    text-align: center;
+    padding: $spacing-md;
+  }
+
+  &__headline {
+    font-size: 200px;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    margin-bottom: $spacing-sm;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &__subhead {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    background: linear-gradient(
+      180deg,
+      #ffd8d8 0%,
+      #ff6b6b 15%,
+      #ff2b2b 35%,
+      #c40000 60%,
+      #6b0000 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: $spacing-lg;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &__cta-group {
+    display: flex;
+    gap: $spacing-sm;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: $spacing-lg;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+  }
+
+  &__scroll-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-silver;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid $color-white;
+    border-right: 2px solid $color-white;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(45deg);
+  }
+}

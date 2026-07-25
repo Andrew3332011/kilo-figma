@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $color-black;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    color: $color-ferrari-red;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__progress {
+    width: 200px;
+    height: 2px;
+    background: rgba($color-white, 0.1);
+    margin: 0 auto $spacing-md;
+  }
+
+  &__bar {
+    width: 0;
+    height: 100%;
+    background: $gradient-red;
+    transition: width 0.3s ease;
+  }
+
+  &__percentage {
+    font-family: $font-mono;
+    font-size: 1rem;
+    color: $color-silver;
+  }
+}

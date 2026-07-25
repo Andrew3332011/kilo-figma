@@ -1,0 +1,16 @@
+@use 'abstracts/variables' as *;
+@use 'base/base';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'components/hero';
+@use 'components/gallery';
+@use 'components/button';
+@use 'components/loader';
+@use 'components/heritage';
+@use 'components/innovation';
+@use 'components/racing';
+
+body {
+  background: $color-black;
+  color: $color-white;
+}

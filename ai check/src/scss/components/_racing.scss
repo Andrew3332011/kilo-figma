@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.racing {
+  padding: $spacing-xl $spacing-md;
+  display: flex;
+  align-items: left;
+  background: url('/pics/racing-car.png') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+
+  &__container {
+    max-width: 1440px;
+
+    position: relative;
+    z-index: 1;
+  }
+
+
+  &__title {
+    font-size: 75px;
+    background: $gradient-red;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: $spacing-md;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+    list-style: none;
+  }
+  
+  &__number {
+    text-align: center;
+    font-size: 50px;
+    font-family: $font-display;
+    font-weight: 900;
+    color: rgb(120, 120, 120);
+  }
+  &__text {
+    font-size: 17px;
+    font-weight: 700;
+  }
+ 
+}
